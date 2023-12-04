@@ -43,7 +43,7 @@ pub mod converter {
                 },
             }
         }
-        return String::from_iter(vec_dst);
+        String::from_iter(vec_dst)
     }
 
     pub fn normalize_kanjinum_string(input: String) -> String {
@@ -64,7 +64,7 @@ pub mod converter {
             };
             vec_dst.push(filtered);
         }
-        return String::from_iter(vec_dst);
+        String::from_iter(vec_dst)
     }
 
     pub fn normalize_zenkakunum_string(input: String) -> String {
@@ -85,7 +85,7 @@ pub mod converter {
             };
             vec_dst.push(filtered);
         }
-        return String::from_iter(vec_dst);
+        String::from_iter(vec_dst)
     }
 
     #[test]
@@ -149,7 +149,7 @@ pub fn split_large_number(japanese: String) -> HashMap<&'static str, i32> {
         parsed_num.insert("千", 0);
     }
 
-    return parsed_num;
+    parsed_num
 }
 
 fn kanjinum_to_int(input: &str) -> i32 {
@@ -180,7 +180,7 @@ fn kanjinum_to_int(input: &str) -> i32 {
         };
         number = number + n * base;
     }
-    return number;
+    number
 }
 
 #[test]
