@@ -71,11 +71,33 @@ fn kanjinum_to_int(input: &str) -> i32 {
     number
 }
 
-#[test]
-fn test_kanjinum_to_int() {
-    assert_eq!(kanjinum_to_int("三千"), 3000);
-    assert_eq!(kanjinum_to_int("千九百一"), 1901);
-    assert_eq!(kanjinum_to_int("九九"), 99);
+#[cfg(test)]
+mod tests {
+    use crate::kanjinum_to_int;
+
+    #[test]
+    fn kanjinum_to_int_1桁() {
+        let result = kanjinum_to_int("九");
+        assert_eq!(result, 9);
+    }
+
+    #[test]
+    fn kanjinum_to_int_2桁() {
+        let result = kanjinum_to_int("二十三");
+        assert_eq!(result, 23);
+    }
+
+    #[test]
+    fn kanjinum_to_int_3桁() {
+        let result = kanjinum_to_int("八百二");
+        assert_eq!(result, 802);
+    }
+
+    #[test]
+    fn kanjinum_to_int_4桁() {
+        let result = kanjinum_to_int("六千三百九十九");
+        assert_eq!(result, 6399);
+    }
 }
 
 /*
