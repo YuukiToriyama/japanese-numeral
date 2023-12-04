@@ -122,7 +122,7 @@ pub fn split_large_number(japanese: String) -> HashMap<&'static str, i32> {
     let mut input = japanese;
     let mut parsed_num: HashMap<&str, i32> = HashMap::new();
     // 京、兆、億、万の順でそれぞれの桁についてパースしていく
-    for unit in vec!["京", "兆", "億", "万"] {
+    for unit in ["京", "兆", "億", "万"] {
         // 正規表現を使い、◯◯万のような文字列をキャプチャする
         let expression = "(?P<number>.+)".to_string() + unit;
         let reg = Regex::new(&expression).unwrap();
@@ -160,7 +160,7 @@ fn kanjinum_to_int(input: &str) -> i32 {
     }
 
     let mut number = 0;
-    for (unit, base) in vec![("千", 1000), ("百", 100), ("十", 10)] {
+    for (unit, base) in [("千", 1000), ("百", 100), ("十", 10)] {
         let expression = "(?P<number>.*)".to_string() + unit;
         let reg = Regex::new(&expression).unwrap();
         let capture = reg.captures(input);
